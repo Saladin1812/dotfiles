@@ -264,6 +264,7 @@
     yazi
     unrar
     unzip
+    vlc
     onlyoffice-desktopeditors
     tmux
     vim

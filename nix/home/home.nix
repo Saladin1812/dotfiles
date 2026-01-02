@@ -50,6 +50,10 @@
     };
   };
 
+  home.file.".config/net.imput.helium/WidevineCdm/latest-component-updated-widevine-cdm".text =
+    builtins.toJSON
+      { Path = "${pkgs.widevine-cdm}/share/google/chrome/WidevineCdm"; };
+
   gtk = {
     enable = true;
     gtk3.extraConfig = {
