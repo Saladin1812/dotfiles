@@ -227,8 +227,6 @@
     godot
     grim
     gh
-    httpie
-    httpie-desktop
     jq
     itch
     libnotify
@@ -245,6 +243,7 @@
     papirus-icon-theme
     pavucontrol
     polychromatic
+    postman
     openrazer-daemon
     pkg-config
     protontricks
@@ -264,7 +263,7 @@
     yazi
     unrar
     unzip
-    vlc
+    celluloid
     onlyoffice-desktopeditors
     tmux
     vim
