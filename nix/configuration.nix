@@ -250,9 +250,12 @@
     prismlauncher
     qutebrowser
     ripgrep
+    runelite
+    bolt-launcher
     rofi
     swww
     slurp
+    supabase-cli
     steamguard-cli
     tutanota-desktop
     nautilus
