@@ -162,8 +162,6 @@
     ];
   };
 
-  programs.adb.enable = true;
-
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # For Steam Remote Play
@@ -207,7 +205,8 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     appimage-run
-    blender-hip
+    android-tools
+    pkgsRocm.blender
     clinfo
     direnv
     discord
@@ -219,6 +218,7 @@
     ffmpeg
     fzf
     claude-code
+    deadlock-mod-manager
     ghostty
     gimp3
     git

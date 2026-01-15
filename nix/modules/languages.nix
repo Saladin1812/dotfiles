@@ -18,7 +18,7 @@
     ngrok
     ninja
     nil
-    nixfmt-rfc-style
+    nixfmt
     mold
     gcc
     python3
