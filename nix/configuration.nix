@@ -281,6 +281,15 @@
 
   nixpkgs.overlays = [
     (final: prev: { qutebrowser = prev.qutebrowser.override { enableWideVine = true; }; })
+    (final: prev: {
+      zapzap = prev.zapzap.overrideAttrs (oldAttrs: {
+        postPatch = (oldAttrs.postPatch or "") + ''
+          substituteInPlace zapzap/services/ExtensionManager.py \
+            --replace-fail "ExtensionManager._extension_manager = profile.extensionManager()" \
+                           "ExtensionManager._extension_manager = getattr(profile, 'extensionManager', lambda: None)()"
+        '';
+      });
+    })
   ];
 
   programs.steam.package = pkgs.steam.override {
