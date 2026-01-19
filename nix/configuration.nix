@@ -233,6 +233,7 @@
     jq
     itch
     libnotify
+    legcord
     loupe
     lutris
     lxqt.lxqt-policykit
