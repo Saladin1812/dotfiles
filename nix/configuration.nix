@@ -224,6 +224,7 @@
     ghostty
     gimp3
     git
+    git-filter-repo
     gnomeExtensions.appindicator
     gnome-disk-utility
     godot
