@@ -250,6 +250,7 @@
     openrazer-daemon
     pkg-config
     protontricks
+    cabextract
     prismlauncher
     qutebrowser
     ripgrep
