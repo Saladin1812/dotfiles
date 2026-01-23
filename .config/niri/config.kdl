@@ -328,7 +328,7 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun" "-show-icons"; }
     Mod+Z hotkey-overlay-title="Run a Command: rofi" { spawn "rofi" "-show" "run"; }
-    Mod+B hotkey-overlay-title="Run Browser:  helium" { spawn "helium" "--disable-features=GlobalShortcutsPortal"; }
+    Mod+B hotkey-overlay-title="Run Browser:  helium" { spawn-sh "helium"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
