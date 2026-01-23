@@ -81,6 +81,11 @@
 
   hardware.openrazer.enable = true;
 
+  # SU 75 Pro keyboard - WebHID access for xsyd.top
+  services.udev.extraRules = ''
+    KERNEL=="hidraw*", ATTRS{idVendor}=="1ca6", ATTRS{idProduct}=="3002", MODE="0666"
+  '';
+
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
