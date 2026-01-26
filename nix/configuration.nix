@@ -184,6 +184,9 @@
       nerd-fonts.jetbrains-mono
       iosevka
       inter
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-color-emoji
     ];
     fontconfig.enable = true;
   };
