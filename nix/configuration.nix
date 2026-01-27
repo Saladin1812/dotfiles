@@ -260,7 +260,7 @@
     protontricks
     cabextract
     prismlauncher
-    qutebrowser
+    papers
     ripgrep
     runelite
     bolt-launcher
