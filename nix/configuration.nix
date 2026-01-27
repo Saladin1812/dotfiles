@@ -15,6 +15,7 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
     ./modules/languages.nix
+    ./modules/godot.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
@@ -235,7 +236,6 @@
     git-filter-repo
     gnomeExtensions.appindicator
     gnome-disk-utility
-    godot
     grim
     gh
     jq
