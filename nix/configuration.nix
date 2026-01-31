@@ -18,7 +18,7 @@
     ./modules/godot.nix
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -96,16 +96,6 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
-
-    extraConfig.pipewire."92-low-latency" = {
-      "context.properties" = {
-        "default.clock.rate" = 48000;
-        "default.clock.quantum" = 2048;
-        "default.clock.min-quantum" = 2048;
-        "default.clock.max-quantum" = 4096;
-      };
-    };
-
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
