@@ -16,6 +16,10 @@
     nur = {
       url = "github:nix-community/NUR";
     };
+
+    nix-cachyos-kernel = {
+      url = "github:xddxdd/nix-cachyos-kernel/release";
+    };
   };
 
   outputs =
@@ -25,6 +29,7 @@
       alacritty-theme,
       zen-browser,
       nur,
+      nix-cachyos-kernel,
       ...
     }@inputs:
     {
@@ -37,7 +42,11 @@
             { config, pkgs, ... }:
             {
               # install the overlay
-              nixpkgs.overlays = [ alacritty-theme.overlays.default inputs.nur.overlays.default ];
+              nixpkgs.overlays = [
+                alacritty-theme.overlays.default
+                inputs.nur.overlays.default
+                nix-cachyos-kernel.overlays.pinned
+              ];
             }
           )
           (

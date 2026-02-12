@@ -18,7 +18,7 @@
     ./modules/godot.nix
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -33,6 +33,14 @@
       "flakes"
     ];
     warn-dirty = false;
+    substituters = [
+      "https://cache.nixos.org"
+      "https://attic.xuyh0120.win/lantian"
+    ];
+    trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+    ];
   };
 
   # Configure network proxy if necessary
