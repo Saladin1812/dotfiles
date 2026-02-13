@@ -33,14 +33,14 @@ let
         drv
 
         # X11
-        p.xorg.libX11
-        p.xorg.libXcursor
-        p.xorg.libXext
-        p.xorg.libXfixes
-        p.xorg.libXi
-        p.xorg.libXinerama
-        p.xorg.libXrandr
-        p.xorg.libXrender
+        p.libx11
+        p.libxcursor
+        p.libxext
+        p.libxfixes
+        p.libxi
+        p.libxinerama
+        p.libxrandr
+        p.libxrender
 
         # Wayland
         p.wayland

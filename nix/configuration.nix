@@ -266,8 +266,6 @@
     prismlauncher
     papers
     ripgrep
-    runelite
-    bolt-launcher
     rofi
     swww
     slurp
@@ -293,26 +291,13 @@
     zoxide
   ];
 
-  nixpkgs.overlays = [
-    (final: prev: { qutebrowser = prev.qutebrowser.override { enableWideVine = true; }; })
-    (final: prev: {
-      zapzap = prev.zapzap.overrideAttrs (oldAttrs: {
-        postPatch = (oldAttrs.postPatch or "") + ''
-          substituteInPlace zapzap/services/ExtensionManager.py \
-            --replace-fail "ExtensionManager._extension_manager = profile.extensionManager()" \
-                           "ExtensionManager._extension_manager = getattr(profile, 'extensionManager', lambda: None)()"
-        '';
-      });
-    })
-  ];
-
   programs.steam.package = pkgs.steam.override {
     extraPkgs =
       pkgs: with pkgs; [
-        xorg.libXcursor
-        xorg.libXi
-        xorg.libXinerama
-        xorg.libXScrnSaver
+        libxcursor
+        libxi
+        libxinerama
+        libxscrnsaver
         libpng
         libpulseaudio
         libvorbis
