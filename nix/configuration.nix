@@ -68,6 +68,11 @@
     LC_TIME = "en_IN";
   };
 
+  # Ensure SecondarySSD mount point is owned by saladin
+  systemd.tmpfiles.rules = [
+    "d /home/saladin/SecondarySSD 0755 saladin users -"
+  ];
+
   zramSwap.enable = true;
 
   # Configure keymap in X11

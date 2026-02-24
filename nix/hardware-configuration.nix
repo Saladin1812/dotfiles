@@ -26,6 +26,12 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
+  fileSystems."/home/saladin/SecondarySSD" =
+    { device = "/dev/disk/by-uuid/1e391dbe-b196-4a64-a10c-e278e26317f8";
+      fsType = "ext4";
+      options = [ "defaults" ];
+    };
+
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
