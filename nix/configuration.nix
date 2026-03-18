@@ -263,7 +263,7 @@
     mangohud
     mesa-demos
     neovim
-    neofetch
+    fastfetch
     networkmanagerapplet
     oh-my-posh
     openssl
