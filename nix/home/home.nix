@@ -59,6 +59,7 @@
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = true;
     };
+    gtk4.theme = null;
     cursorTheme = {
       name = "Bibata-Modern-Classic";
       package = pkgs.bibata-cursors;
