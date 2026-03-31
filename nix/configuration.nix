@@ -163,10 +163,15 @@
     };
   };
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
+  # Enable the COSMIC login manager
+  services.displayManager.cosmic-greeter.enable = true;
+
+  # Enable the COSMIC desktop environment
+  services.desktopManager.cosmic.enable = true;
+
+  services.system76-scheduler.enable = true;
+
+  environment.sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;
 
   programs.niri = {
     enable = true;
@@ -176,10 +181,10 @@
     enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gnome # For Gnome / Niri
-      pkgs.xdg-desktop-portal-gtk # For Gnome / Niri
-      pkgs.xdg-desktop-portal-hyprland # For Hyprland
+      pkgs.xdg-desktop-portal-cosmic # For Cosmic
     ];
     config.common.default = [
+      "cosmic"
       "gnome"
       "gtk"
       "hyprland"
@@ -207,11 +212,6 @@
     ];
     fontconfig.enable = true;
   };
-
-  # Enable GDM display manager (works well with Niri/Hyprland)
-  services.displayManager.gdm.enable = true;
-  # GNOME desktop disabled - using Niri/Hyprland instead
-  # services.desktopManager.gnome.enable = true;
 
   services.udev.packages = [ pkgs.gnome-settings-daemon ];
 
