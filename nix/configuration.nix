@@ -245,6 +245,7 @@
     ffmpeg
     fzf
     claude-code
+    codex
     deadlock-mod-manager
     ghostty
     gimp3
