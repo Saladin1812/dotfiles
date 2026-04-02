@@ -12,12 +12,11 @@
         x = 4;
         y = 8;
       };
-      decorations = "full";
+      decorations = "None";
       opacity = 0.8;
       startup_mode = "Windowed";
       title = "Alacritty";
       dynamic_title = true;
-      decorations_theme_variant = "None";
     };
 
     general = {
@@ -29,18 +28,15 @@
     };
 
     font =
-      let
-        jetbrainsMono = style: {
-          family = "JetBrainsMono Nerd Font";
-          inherit style;
-        };
-      in
       {
         size = 15;
-        normal = jetbrainsMono "Regular";
-        bold = jetbrainsMono "Bold";
-        italic = jetbrainsMono "Italic";
-        bold_italic = jetbrainsMono "Bold Italic";
+        normal = {
+          family = "JetBrainsMono Nerd Font Mono";
+          style = "Regular";
+        };
+        bold.style = "Bold";
+        italic.style = "Italic";
+        bold_italic.style = "Bold Italic";
       };
 
     mouse.hide_when_typing = true;

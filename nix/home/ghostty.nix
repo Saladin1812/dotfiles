@@ -7,6 +7,7 @@
   enableZshIntegration = true;
   settings = {
     theme = "TokyoNight";
+    font-family = "JetBrainsMono Nerd Font Mono";
     font-size = 14;
     gtk-titlebar = false;
     window-width = 140;
