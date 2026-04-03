@@ -36,10 +36,12 @@
     substituters = [
       "https://cache.nixos.org"
       "https://attic.xuyh0120.win/lantian"
+      "https://nix-cache.tokidoki.dev/tokidoki"
     ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+      "tokidoki:MD4VWt3kK8Fmz3jkiGoNRJIW31/QAm7l1Dcgz2Xa4hk="
     ];
   };
 
@@ -195,7 +197,10 @@
     enable = true;
     remotePlay.openFirewall = true; # For Steam Remote Play
     dedicatedServer.openFirewall = true; # For Source Dedicated Server hosting
-    extraCompatPackages = [ pkgs.proton-ge-bin ];
+    extraCompatPackages = [
+      pkgs.proton-ge-bin
+      pkgs.proton-cachyos
+    ];
     gamescopeSession = {
       enable = true;
     };
@@ -218,6 +223,15 @@
   programs.gamemode.enable = true;
 
   nixpkgs.config.allowUnfree = true;
+
+  drivers.mesa-git = {
+    enable = true;
+    cacheCleanup = {
+      enable = true;
+      protonPackage = pkgs.proton-cachyos;
+    };
+    steamOrphanCleanup.enable = true;
+  };
 
   hardware.graphics = {
     enable = true;

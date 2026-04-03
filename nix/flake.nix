@@ -17,6 +17,11 @@
       url = "github:nix-community/NUR";
     };
 
+    nix-gaming-edge = {
+      url = "github:powerofthe69/nix-gaming-edge";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-cachyos-kernel = {
       url = "github:xddxdd/nix-cachyos-kernel/release";
     };
@@ -45,10 +50,12 @@
               nixpkgs.overlays = [
                 alacritty-theme.overlays.default
                 inputs.nur.overlays.default
+                inputs.nix-gaming-edge.overlays.default
                 nix-cachyos-kernel.overlays.pinned
               ];
             }
           )
+          inputs.nix-gaming-edge.nixosModules.default
           (
             { config, pkgs, ... }:
             {
