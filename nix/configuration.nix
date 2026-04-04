@@ -186,10 +186,8 @@
       pkgs.xdg-desktop-portal-cosmic # For Cosmic
     ];
     config.common.default = [
-      "cosmic"
       "gnome"
-      "gtk"
-      "hyprland"
+      "cosmic"
     ];
   };
 
