@@ -183,10 +183,12 @@
     enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gnome # For Gnome / Niri
+      pkgs.xdg-desktop-portal-gtk # Fallback
       pkgs.xdg-desktop-portal-cosmic # For Cosmic
     ];
     config.common.default = [
       "gnome"
+      "gtk"
       "cosmic"
     ];
   };
