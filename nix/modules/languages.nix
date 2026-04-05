@@ -6,7 +6,7 @@
     cargo-cache
     clang
     dioxus-cli
-    dotnetCorePackages.dotnet_9.sdk
+    dotnetCorePackages.dotnet_10.sdk
     fvm
     go
     gnumake
