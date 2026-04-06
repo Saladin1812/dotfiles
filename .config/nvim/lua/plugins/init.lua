@@ -97,6 +97,11 @@ return {
   },
 
   {
+    "cdelledonne/vim-cmake",
+    lazy = false,
+  },
+
+  {
     "leoluz/nvim-dap-go",
     ft = "go",
     dependencies = "mfussenegger/nvim-dap",
