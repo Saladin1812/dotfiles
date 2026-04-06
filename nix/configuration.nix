@@ -298,6 +298,7 @@
     supabase-cli
     steamguard-cli
     tutanota-desktop
+    tree-sitter
     nautilus
     teams-for-linux
     unityhub

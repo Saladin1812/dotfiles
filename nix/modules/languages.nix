@@ -4,6 +4,7 @@
     bun
     cargo-watch
     cargo-cache
+    cmake
     clang
     dioxus-cli
     dotnetCorePackages.dotnet_10.sdk
