@@ -258,7 +258,6 @@
     fd
     ffmpeg
     fzf
-    claude-code
     codex
     deadlock-mod-manager
     ghostty
@@ -294,7 +293,7 @@
     papers
     ripgrep
     rofi
-    swww
+    awww
     slurp
     supabase-cli
     steamguard-cli
