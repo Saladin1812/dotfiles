@@ -97,10 +97,7 @@ return {
     },
   },
 
-  {
-    "cdelledonne/vim-cmake",
-    lazy = false,
-  },
+  { "Civitasv/cmake-tools.nvim", lazy = false },
 
   {
     "leoluz/nvim-dap-go",
