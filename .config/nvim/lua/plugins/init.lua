@@ -97,7 +97,15 @@ return {
     },
   },
 
-  { "Civitasv/cmake-tools.nvim", lazy = false },
+  {
+    "Civitasv/cmake-tools.nvim",
+    lazy = false,
+    dependencies = { "preservim/vimux" },
+    opts = {
+      cmake_executor = { name = "vimux", opts = {} },
+      cmake_runner = { name = "vimux", opts = {} },
+    },
+  },
 
   {
     "leoluz/nvim-dap-go",
