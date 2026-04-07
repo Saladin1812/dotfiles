@@ -6,6 +6,7 @@
     cargo-cache
     cmake
     clang
+    clang-tools
     dioxus-cli
     dotnetCorePackages.dotnet_10.sdk
     fvm
