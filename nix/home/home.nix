@@ -27,7 +27,7 @@
     bibata-cursors
     morewaita-icon-theme
     inputs.zen-browser.packages.x86_64-linux.default
-    pkgs.nur.repos.Ev357.helium
+    inputs.helium-browser.packages.x86_64-linux.helium
   ];
 
   xdg.enable = true;

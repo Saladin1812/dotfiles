@@ -14,6 +14,7 @@ local servers = {
   "ts_ls",
   "clangd",
   "gdscript",
+  "neocmake",
 }
 local util = require "lspconfig/util"
 

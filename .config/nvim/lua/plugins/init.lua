@@ -23,6 +23,7 @@ return {
         "vimdoc",
         "html",
         "css",
+        "cmake",
         "cpp",
         "json",
         "go",

@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    helium-browser.url = "github:schembriaiden/helium-browser-nix-flake";
+    helium-browser.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -12,10 +14,6 @@
 
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
     alacritty-theme.inputs.nixpkgs.follows = "nixpkgs";
-
-    nur = {
-      url = "github:nix-community/NUR";
-    };
 
     nix-gaming-edge = {
       url = "github:powerofthe69/nix-gaming-edge";
@@ -33,7 +31,6 @@
       nixpkgs,
       alacritty-theme,
       zen-browser,
-      nur,
       nix-cachyos-kernel,
       ...
     }@inputs:
@@ -49,7 +46,6 @@
               # install the overlay
               nixpkgs.overlays = [
                 alacritty-theme.overlays.default
-                inputs.nur.overlays.default
                 inputs.nix-gaming-edge.overlays.default
                 nix-cachyos-kernel.overlays.pinned
               ];
