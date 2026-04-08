@@ -17,8 +17,24 @@ return {
     "saghen/blink.cmp",
     opts = function(_, opts)
       opts.keymap = opts.keymap or {}
-      opts.keymap["<Tab>"] = { "snippet_forward", "fallback" }
-      opts.keymap["<S-Tab>"] = { "snippet_backward", "fallback" }
+      opts.keymap["<Tab>"] = {
+        function(cmp)
+          if cmp.snippet_active { direction = 1 } then
+            return cmp.snippet_forward()
+          end
+        end,
+        "select_next",
+        "fallback",
+      }
+      opts.keymap["<S-Tab>"] = {
+        function(cmp)
+          if cmp.snippet_active { direction = -1 } then
+            return cmp.snippet_backward()
+          end
+        end,
+        "select_prev",
+        "fallback",
+      }
       return opts
     end,
   },
