@@ -12,6 +12,19 @@ return {
     end,
   },
 
+  {
+    "DrKJeff16/project.nvim",
+    lazy = false,
+    config = function()
+    require("project").setup {
+      lsp = {
+        enabled = true,
+        no_fallback = false,
+      },
+    }
+    end
+  },
+
   { import = "nvchad.blink.lazyspec" },
   {
     "saghen/blink.cmp",
