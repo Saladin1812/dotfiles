@@ -272,7 +272,6 @@
     itch
     libnotify
     loupe
-    lutris
     lxqt.lxqt-policykit
     mangohud
     mesa-demos
