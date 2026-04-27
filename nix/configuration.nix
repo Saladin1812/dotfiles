@@ -175,6 +175,13 @@
 
   environment.sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;
 
+  # Enable Hyprland
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+    xwayland.enable = true;
+  };
+
   programs.niri = {
     enable = true;
   };
@@ -185,11 +192,13 @@
       pkgs.xdg-desktop-portal-gnome # For Gnome / Niri
       pkgs.xdg-desktop-portal-gtk # Fallback
       pkgs.xdg-desktop-portal-cosmic # For Cosmic
+      pkgs.xdg-desktop-portal-hyprland # For Cosmic
     ];
     config.common.default = [
       "cosmic"
       "gnome"
       "gtk"
+      "hyprland"
     ];
   };
 

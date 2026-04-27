@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-swww-daemon &
+awww-daemon &
 
-swww img ~/Wallpapers/wallpaper.png &
+awww img ~/Wallpapers/wallpaper.png &
 
 nm-applet --indicator &
 
