@@ -192,14 +192,14 @@
       pkgs.xdg-desktop-portal-gnome # For Gnome / Niri
       pkgs.xdg-desktop-portal-gtk # Fallback
       pkgs.xdg-desktop-portal-cosmic # For Cosmic
-      pkgs.xdg-desktop-portal-hyprland # For Cosmic
+      pkgs.xdg-desktop-portal-hyprland # For Hyprland
     ];
-    config.common.default = [
-      "cosmic"
-      "gnome"
-      "gtk"
-      "hyprland"
-    ];
+    config = {
+      common.default = [ "gtk" ];
+      niri.default = [ "gnome" "gtk" ];
+      cosmic.default = [ "cosmic" "gtk" ];
+      hyprland.default = [ "hyprland" "gtk" ];
+    };
   };
 
   programs.steam = {
