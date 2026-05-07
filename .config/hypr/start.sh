@@ -6,6 +6,6 @@ awww img ~/Wallpapers/wallpaper.png &
 
 nm-applet --indicator &
 
-waybar &
+~/.config/hypr/restart-waybar.sh &
 
 dunst
