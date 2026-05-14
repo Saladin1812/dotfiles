@@ -293,6 +293,7 @@
     openssl
     papirus-icon-theme
     pavucontrol
+    pandoc
     polychromatic
     postman
     openrazer-daemon
