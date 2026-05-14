@@ -62,7 +62,6 @@ alias c='clear'
 alias tm='tmux new-session -A -s main'
 alias nv='nvim'
 alias nvunity='nvimunity'
-alias unreal='SDL_VIDEODRIVER=wayland steam-run ~/Apps/Linux_Unreal_Engine_5.5.3/Engine/Binaries/Linux/UnrealEditor'
 alias android-emulator='emulator -avd phone -skin 720x1280 -noaudio -no-snapshot-load -no-snapshot'
 
 # Export PATHs
