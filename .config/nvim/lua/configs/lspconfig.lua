@@ -13,7 +13,6 @@ local servers = {
   "omnisharp",
   "ts_ls",
   "clangd",
-  "gdscript",
   "neocmake",
 }
 local util = require "lspconfig/util"

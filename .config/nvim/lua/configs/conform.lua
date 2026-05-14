@@ -16,7 +16,6 @@ local options = {
     odin = { "odinfmt" },
     nix = { "nixfmt" },
     dart = { "dart_format" },
-    gd = { "gdformat" },
     cpp = { "clang-format" },
   },
 

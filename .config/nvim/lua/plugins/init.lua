@@ -16,13 +16,13 @@ return {
     "DrKJeff16/project.nvim",
     lazy = false,
     config = function()
-    require("project").setup {
-      lsp = {
-        enabled = true,
-        no_fallback = false,
-      },
-    }
-    end
+      require("project").setup {
+        lsp = {
+          enabled = true,
+          no_fallback = false,
+        },
+      }
+    end,
   },
 
   { import = "nvchad.blink.lazyspec" },
@@ -75,9 +75,6 @@ return {
         "typescript",
         "javascript",
         "tsx",
-        "gdscript",
-        "godot_resource",
-        "gdshader",
       },
     },
   },
@@ -133,6 +130,11 @@ return {
       },
       handlers = {},
     },
+  },
+
+  {
+    "Mathijs-Bakker/godotdev.nvim",
+    dependencies = { "nvim-dap", "nvim-dap-ui", "nvim-treesitter" },
   },
 
   {
