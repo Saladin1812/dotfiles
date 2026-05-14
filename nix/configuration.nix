@@ -287,6 +287,7 @@
     mangohud
     mesa-demos
     neovim
+    neovim-remote
     fastfetch
     networkmanagerapplet
     oh-my-posh
