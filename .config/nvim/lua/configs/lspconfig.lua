@@ -4,7 +4,7 @@ require("nvchad.configs.lspconfig").defaults()
 local servers = {
   "html",
   "cssls",
-  "pyright",
+  "ty",
   "zls",
   "gopls",
   "taplo",

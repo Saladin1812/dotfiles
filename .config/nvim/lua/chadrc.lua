@@ -20,7 +20,7 @@ M.ui = {
 }
 
 M.mason = {
-  pkgs = { "rust-analyzer", "gopls" },
+  pkgs = { "rust-analyzer", "gopls", "ty" },
   skip = { "clangd", "clang-format" },
 }
 
