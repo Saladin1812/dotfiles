@@ -1,0 +1,32 @@
+diff --git a/driver/razerkbd_driver.c b/driver/razerkbd_driver.c
+index 4387ad0..0a4e5d2 100644
+--- a/driver/razerkbd_driver.c
++++ b/driver/razerkbd_driver.c
+@@ -10,6 +10,7 @@
+ #include <linux/usb/input.h>
+ #include <linux/hid.h>
+ #include <linux/dmi.h>
++#include <linux/version.h>
+ #include <linux/input-event-codes.h>
+ 
+ #include "usb_hid_keys.h"
+@@ -4834,11 +4835,19 @@ static int razer_raw_event_bitfield(struct hid_device *hdev, struct hid_report *
+ 
+                             // report key down
+                             xdata[1] = cur_value;
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(7, 0, 0)
++                            hid_report_raw_event(hdev, HID_INPUT_REPORT, xdata, sizeof(xdata), sizeof(xdata), 0);
++#else
+                             hid_report_raw_event(hdev, HID_INPUT_REPORT, xdata, sizeof(xdata), 0);
++#endif
+ 
+                             // report key up
+                             xdata[1] = 0x00;
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(7, 0, 0)
++                            hid_report_raw_event(hdev, HID_INPUT_REPORT, xdata, sizeof(xdata), sizeof(xdata), 0);
++#else
+                             hid_report_raw_event(hdev, HID_INPUT_REPORT, xdata, sizeof(xdata), 0);
++#endif
+                         }
+                     }
+                 }

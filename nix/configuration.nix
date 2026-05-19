@@ -95,7 +95,14 @@
   security.polkit.enable = true;
   services.udisks2.enable = true;
 
-  hardware.openrazer.enable = true;
+  hardware.openrazer = {
+    enable = true;
+    packages.kernel = config.boot.kernelPackages.openrazer.overrideAttrs (old: {
+      patches = (old.patches or [ ]) ++ [
+        ./patches/openrazer-linux-7-hid-report-raw-event.patch
+      ];
+    });
+  };
 
   # SU 75 Pro keyboard - WebHID access for xsyd.top
   services.udev.extraRules = ''
