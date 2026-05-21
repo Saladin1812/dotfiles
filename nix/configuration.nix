@@ -267,6 +267,7 @@
     android-tools
     pkgsRocm.blender
     clinfo
+    google-chrome
     direnv
     discord
     deluge
