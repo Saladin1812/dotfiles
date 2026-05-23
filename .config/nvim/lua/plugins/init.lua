@@ -313,4 +313,12 @@ return {
       environment_variables = nil, -- Environment variables to pass when launching editor (Linux/Mac only)
     },
   },
+  {
+    "Saladin1812/roundtable.nvim",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+    },
+    config = true,
+    lazy = false,
+  },
 }
