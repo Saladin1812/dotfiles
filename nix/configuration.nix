@@ -266,6 +266,7 @@
     appimage-run
     android-tools
     pkgsRocm.blender
+    cameractrls-gtk4
     clinfo
     google-chrome
     direnv
