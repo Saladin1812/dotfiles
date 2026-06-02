@@ -2,10 +2,23 @@
   pkgs,
   ...
 }:
+let
+  unreal-clangd = pkgs.vscode-utils.buildVscodeExtension {
+    pname = "unreal-clangd";
+    version = "3.4.1";
+    src = pkgs.fetchurl {
+      url = "https://github.com/boocs/unreal-clangd/releases/download/v3.4.1/unreal-clangd-3.4.1.vsix";
+      hash = "sha256-g3KxFvnI/8t4KB1JynbxYGtCfdaoiKnmZhg9u7owXFU=";
+    };
+    vscodeExtPublisher = "boocs";
+    vscodeExtName = "unreal-clangd";
+    vscodeExtUniqueId = "boocs.unreal-clangd";
+  };
+in
 {
   enable = true;
   package = pkgs.vscode-fhs;
-  profiles.default.extensions = pkgs.nix4vscode.forVscode [
+  profiles.default.extensions = (pkgs.nix4vscode.forVscode [
     "vscodevim.vim"
     "danielgavin.ols"
     "charliermarsh.ruff"
@@ -25,7 +38,7 @@
     "redhat.vscode-yaml"
     "ziglang.vscode-zig"
     "pkief.material-icon-theme"
-  ];
+  ]) ++ [ unreal-clangd ];
   profiles.default.userSettings = {
     "workbench.startupEditor" = "none";
     "window.customTitleBarVisibility" = "never";
