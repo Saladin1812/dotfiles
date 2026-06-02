@@ -23,6 +23,11 @@
     nix-cachyos-kernel = {
       url = "github:xddxdd/nix-cachyos-kernel/release";
     };
+
+    nix4vscode = {
+      url = "github:nix-community/nix4vscode";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -48,6 +53,7 @@
                 alacritty-theme.overlays.default
                 inputs.nix-gaming-edge.overlays.default
                 nix-cachyos-kernel.overlays.pinned
+                inputs.nix4vscode.overlays.default
               ];
             }
           )

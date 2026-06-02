@@ -5,27 +5,26 @@
 {
   enable = true;
   package = pkgs.vscode-fhs;
-  profiles.default.extensions = with pkgs.vscode-extensions; [
-    vscodevim.vim
-    danielgavin.ols
-    charliermarsh.ruff
-    enkia.tokyo-night
-    esbenp.prettier-vscode
-    jnoortheen.nix-ide
-    mkhl.direnv
-    github.copilot
-    github.copilot-chat
-    ms-python.python
-    tamasfe.even-better-toml
-    rust-lang.rust-analyzer
-    vadimcn.vscode-lldb
-    fill-labs.dependi
-    visualstudiotoolsforunity.vstuc
-    ms-dotnettools.csharp
-    ms-dotnettools.csdevkit
-    redhat.vscode-yaml
-    ziglang.vscode-zig
-    pkief.material-icon-theme
+  profiles.default.extensions = pkgs.nix4vscode.forVscode [
+    "vscodevim.vim"
+    "danielgavin.ols"
+    "charliermarsh.ruff"
+    "enkia.tokyo-night"
+    "esbenp.prettier-vscode"
+    "jnoortheen.nix-ide"
+    "mkhl.direnv"
+    "astral-sh.ty"
+    "llvm-vs-code-extensions.vscode-clangd"
+    "ms-vscode.cpptools"
+    "captncaps.ue4-snippets"
+    "golang.go"
+    "tamasfe.even-better-toml"
+    "rust-lang.rust-analyzer"
+    "vadimcn.vscode-lldb"
+    "fill-labs.dependi"
+    "redhat.vscode-yaml"
+    "ziglang.vscode-zig"
+    "pkief.material-icon-theme"
   ];
   profiles.default.userSettings = {
     "workbench.startupEditor" = "none";
@@ -36,7 +35,7 @@
     "workbench.iconTheme" = "material-icon-theme";
     "material-icon-theme.hidesExplorerArrows" = true;
     "workbench.tree.enableStickyScroll" = false;
-    "workbench.tree.renderIndentGuides" = false;
+    "workbench.tree.renderIndentGuides" = "always";
     "workbench.tree.indent" = 8;
     "explorer.compactFolders" = false;
     "explorer.confirmDragAndDrop" = false;
@@ -62,6 +61,7 @@
     "editor.fontSize" = 16;
     "editor.fontLigatures" = true;
     "editor.cursorBlinking" = "solid";
+    "chat.disableAIFeatures" = true;
     "window.zoomLevel" = 1.25;
     "vim.normalModeKeyBindingsNonRecursive" = [
       {
@@ -220,6 +220,7 @@
     };
 
     "nix.enableLanguageServer" = true;
+    "C_Cpp.intelliSenseEngine" = "disabled";
     "zig.zls.enabled" = "on";
     "cmake.useCmakePresets" = "always";
     "nix.serverPath" = "nil";
