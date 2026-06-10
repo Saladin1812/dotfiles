@@ -94,6 +94,7 @@
   services.gvfs.enable = true;
   security.polkit.enable = true;
   services.udisks2.enable = true;
+  services.tailscale.enable = true;
 
   hardware.openrazer = {
     enable = true;
