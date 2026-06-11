@@ -46,10 +46,6 @@
   home.file.".zshrc".source = config.lib.file.mkOutOfStoreSymlink /home/saladin/.dotfiles/.zshrc;
   home.file.".cargo/config.toml".source =
     config.lib.file.mkOutOfStoreSymlink /home/saladin/.dotfiles/.cargo/config.toml;
-  home.file.".local/bin/godotdev.sh" = {
-    source = config.lib.file.mkOutOfStoreSymlink /home/saladin/.dotfiles/.local/bin/godotdev.sh;
-    force = true;
-  };
   home.file.".local/bin/godotdev" = {
     source = config.lib.file.mkOutOfStoreSymlink /home/saladin/.dotfiles/.local/bin/godotdev;
     force = true;
