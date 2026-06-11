@@ -39,9 +39,25 @@
   xdg.configFile.dunst.source = config.lib.file.mkOutOfStoreSymlink /home/saladin/.dotfiles/.config/dunst;
   xdg.configFile.waybar.source = config.lib.file.mkOutOfStoreSymlink /home/saladin/.dotfiles/.config/waybar;
   xdg.configFile.rofi.source = config.lib.file.mkOutOfStoreSymlink /home/saladin/.dotfiles/.config/rofi;
+  xdg.configFile."godot/editor_settings-4.6.tres" = {
+    source = config.lib.file.mkOutOfStoreSymlink /home/saladin/.dotfiles/.config/godot/editor_settings-4.6.tres;
+    force = true;
+  };
   home.file.".zshrc".source = config.lib.file.mkOutOfStoreSymlink /home/saladin/.dotfiles/.zshrc;
   home.file.".cargo/config.toml".source =
     config.lib.file.mkOutOfStoreSymlink /home/saladin/.dotfiles/.cargo/config.toml;
+  home.file.".local/bin/godotdev.sh" = {
+    source = config.lib.file.mkOutOfStoreSymlink /home/saladin/.dotfiles/.local/bin/godotdev.sh;
+    force = true;
+  };
+  home.file.".local/bin/godotdev" = {
+    source = config.lib.file.mkOutOfStoreSymlink /home/saladin/.dotfiles/.local/bin/godotdev;
+    force = true;
+  };
+  home.file.".local/bin/godot-nvr.sh" = {
+    source = config.lib.file.mkOutOfStoreSymlink /home/saladin/.dotfiles/.local/bin/godot-nvr.sh;
+    force = true;
+  };
   dconf = {
     enable = true;
     settings."org/gnome/desktop/interface" = {

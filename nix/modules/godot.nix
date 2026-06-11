@@ -69,14 +69,14 @@ let
   # Hashes from: nix-prefetch-url.
   # Binaries from: https://github.com/godotengine/godot-builds/releases
   versions = {
-    "4.6.2" = {
-      version = "4.6.2-stable";
-      sha512 = "b6e4d5a716085e9649905be2afe77f723f97853544fb33392ce3d32594c730a95d9eb4d1042ed51508904c9e1d996bd36b7c7a2bf4f93f5b1885e98d81b792e7";
-      url = "https://github.com/godotengine/godot-builds/releases/download/4.6.2-stable/Godot_v4.6.2-stable_linux.x86_64.zip";
+    "4.6.3" = {
+      version = "4.6.3-stable";
+      sha512 = "a035258da32b77f966a5376f9fa29c30a6adde826a85ba918e1605bd1fc9823eba7d85f1dd5e748956bd2ba72827c0025ffa11bb82aec91128c407a2e723c99c";
+      url = "https://github.com/godotengine/godot-builds/releases/download/4.6.3-stable/Godot_v4.6.3-stable_linux.x86_64.zip";
     };
   };
 
-  defaultVersion = "4.6.2";
+  defaultVersion = "4.6.3";
 
   godotPackages = lib.mapAttrsToList (_: v: mkGodotBin v) versions;
 
@@ -85,7 +85,7 @@ let
   '';
 
   godotIcon = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/godotengine/godot/4.6.2-stable/icon.svg";
+    url = "https://raw.githubusercontent.com/godotengine/godot/4.6.3-stable/icon.svg";
     hash = "sha256-FEOul0hCuBdl1bUOanKeu/Qeui6eUVqwkZ8upci49HU=";
   };
 
