@@ -53,10 +53,12 @@
   networking.networkmanager = {
     enable = true;
     dns = "systemd-resolved";
-    insertNameservers = [
-      "1.1.1.3"
-      "1.0.0.3"
-    ];
+    settings = {
+      global-dns = { };
+      "global-dns-domain-*" = {
+        servers = "1.1.1.3,1.0.0.3";
+      };
+    };
   };
   services.resolved = {
     enable = true;
