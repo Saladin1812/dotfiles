@@ -325,6 +325,7 @@
     slurp
     supabase-cli
     steamguard-cli
+    telegram-desktop
     tutanota-desktop
     tree-sitter
     nautilus
