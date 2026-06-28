@@ -88,8 +88,18 @@
     "d /home/saladin/SecondarySSD 0755 saladin users -"
   ];
 
-  zramSwap.enable = true;
+  zramSwap = {
+    enable = true;
+    priority = 100; # High priority primary swap
+  };
 
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 16 * 1024; # 16384 MB (16 GiB)
+      priority = 1; # Low priority fallback
+    }
+  ];
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
