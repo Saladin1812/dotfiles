@@ -316,6 +316,7 @@
     openrazer-daemon
     pkg-config
     protontricks
+    protonplus
     cabextract
     prismlauncher
     papers
