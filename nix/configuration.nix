@@ -95,7 +95,7 @@
 
   swapDevices = [
     {
-      device = "/var/lib/swapfile";
+      device = "/home/saladin/SecondarySSD/swapfile";
       size = 16 * 1024; # 16384 MB (16 GiB)
       priority = 1; # Low priority fallback
     }
