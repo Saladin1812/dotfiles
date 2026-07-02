@@ -27,6 +27,7 @@
     pocketbase
     rustup
     trunk
+    uv
     odin
   ];
 }
