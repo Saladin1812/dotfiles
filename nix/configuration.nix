@@ -56,13 +56,13 @@
     settings = {
       global-dns = { };
       "global-dns-domain-*" = {
-        servers = "1.1.1.3,1.0.0.3";
+        servers = "1.1.1.2,1.0.0.2";
       };
     };
   };
   services.resolved = {
     enable = true;
-    settings.Resolve.FallbackDNS = "1.1.1.3 1.0.0.3";
+    settings.Resolve.FallbackDNS = "1.1.1.2 1.0.0.2";
   };
 
   # Set your time zone.
