@@ -285,6 +285,7 @@
     pkgsRocm.blender
     cameractrls-gtk4
     clinfo
+    claude-code
     google-chrome
     direnv
     discord
