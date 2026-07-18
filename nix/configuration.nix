@@ -355,6 +355,7 @@
     xwayland-satellite
     xdg-user-dirs
     yazi
+    smartmontools
     unrar
     unzip
     celluloid
