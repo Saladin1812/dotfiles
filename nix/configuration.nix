@@ -65,6 +65,15 @@
     settings.Resolve.FallbackDNS = "1.1.1.2 1.0.0.2";
   };
 
+  services.postgresql = {
+    enable = true;
+    ensureDatabases = [ "mydatabase" ];
+    authentication = pkgs.lib.mkOverride 10 ''
+      #type database  DBuser  auth-method
+      local all       all     trust
+    '';
+  };
+
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
@@ -334,6 +343,7 @@
     rofi
     awww
     slurp
+    sqlc
     supabase-cli
     steamguard-cli
     telegram-desktop
