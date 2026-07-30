@@ -305,7 +305,6 @@
     fd
     ffmpeg
     fzf
-    codex
     deadlock-mod-manager
     ghostty
     gimp3
@@ -365,6 +364,7 @@
     waybar
     wget
     wl-clipboard
+    ytmdesktop
     zapzap
     zoxide
   ];
