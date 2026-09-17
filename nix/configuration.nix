@@ -118,6 +118,10 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-41.10.6"
+  ];
+
   # Enable gnome keyring with auto-unlock
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.gdm.enableGnomeKeyring = true;
@@ -294,7 +298,7 @@
     pkgsRocm.blender
     cameractrls-gtk4
     clinfo
-    claude-code
+    codex
     google-chrome
     direnv
     discord
@@ -318,6 +322,7 @@
     itch
     libnotify
     loupe
+    lutris
     lxqt.lxqt-policykit
     mangohud
     mesa-demos
@@ -346,6 +351,7 @@
     supabase-cli
     steamguard-cli
     telegram-desktop
+    legcord
     tutanota-desktop
     tree-sitter
     nautilus
