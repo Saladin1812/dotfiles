@@ -12,6 +12,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    windscribe-nixos = {
+      url = "github:Varmisanth/windscribe-nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
     alacritty-theme.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -45,6 +50,7 @@
         modules = [
           ./configuration.nix
           inputs.home-manager.nixosModules.default
+          inputs.windscribe-nixos.nixosModules.windscribe
           (
             { config, pkgs, ... }:
             {

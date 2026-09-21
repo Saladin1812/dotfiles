@@ -37,11 +37,13 @@
       "https://cache.nixos.org"
       "https://attic.xuyh0120.win/lantian"
       "https://nix-cache.tokidoki.dev/tokidoki"
+      "https://varmisanth.cachix.org"
     ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
       "tokidoki:MD4VWt3kK8Fmz3jkiGoNRJIW31/QAm7l1Dcgz2Xa4hk="
+      "varmisanth.cachix.org-1:rt04yjDDJKDWe+h6B1XQWfdsSDUX6uks+9IKVBjn2d8="
     ];
   };
 
@@ -64,6 +66,43 @@
     enable = true;
     settings.Resolve.FallbackDNS = "1.1.1.2 1.0.0.2";
   };
+
+  # Includes the system helper and installs the app through Home Manager.
+  programs.windscribe = {
+    enable = true;
+    users = [ "saladin" ];
+    app.autoStart = false;
+  };
+
+  # The privileged helper resets PATH for security. Use immutable Nix paths
+  # instead of upstream's FHS directories so WireGuard can configure its device.
+  nixpkgs.overlays = [
+    (final: prev: {
+      windscribe = prev.windscribe.overrideAttrs (old: {
+        postPatch = (old.postPatch or "") + ''
+          substituteInPlace src/helper/linux/main.cpp \
+            --replace-fail '"/usr/sbin:/usr/bin:/sbin:/bin"' \
+            '"${prev.lib.makeBinPath [
+              prev.coreutils
+              prev.iproute2
+              prev.gnugrep
+              prev.gawk
+              prev.gnused
+              prev.findutils
+              prev.procps
+              prev.util-linux
+              prev.iptables
+              prev.nftables
+              prev.ethtool
+              prev.iw
+              prev.kmod
+              prev.systemd
+              prev.windscribe.nmcli
+            ]}"'
+        '';
+      });
+    })
+  ];
 
   services.postgresql = {
     enable = true;

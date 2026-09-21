@@ -32,6 +32,8 @@
 
   xdg.enable = true;
 
+  services.easyeffects = import ./easyeffects.nix;
+
   xdg.configFile.hypr.source = config.lib.file.mkOutOfStoreSymlink /home/saladin/.dotfiles/.config/hypr;
   xdg.configFile.niri.source = config.lib.file.mkOutOfStoreSymlink /home/saladin/.dotfiles/.config/niri;
   xdg.configFile.nvim.source = config.lib.file.mkOutOfStoreSymlink /home/saladin/.dotfiles/.config/nvim;
