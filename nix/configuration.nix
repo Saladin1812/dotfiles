@@ -82,23 +82,25 @@
         postPatch = (old.postPatch or "") + ''
           substituteInPlace src/helper/linux/main.cpp \
             --replace-fail '"/usr/sbin:/usr/bin:/sbin:/bin"' \
-            '"${prev.lib.makeBinPath [
-              prev.coreutils
-              prev.iproute2
-              prev.gnugrep
-              prev.gawk
-              prev.gnused
-              prev.findutils
-              prev.procps
-              prev.util-linux
-              prev.iptables
-              prev.nftables
-              prev.ethtool
-              prev.iw
-              prev.kmod
-              prev.systemd
-              prev.windscribe.nmcli
-            ]}"'
+            '"${
+              prev.lib.makeBinPath [
+                prev.coreutils
+                prev.iproute2
+                prev.gnugrep
+                prev.gawk
+                prev.gnused
+                prev.findutils
+                prev.procps
+                prev.util-linux
+                prev.iptables
+                prev.nftables
+                prev.ethtool
+                prev.iw
+                prev.kmod
+                prev.systemd
+                prev.windscribe.nmcli
+              ]
+            }"'
         '';
       });
     })
@@ -339,6 +341,7 @@
     clinfo
     codex
     google-chrome
+    davinci-resolve
     direnv
     discord
     deluge
