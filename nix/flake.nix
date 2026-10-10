@@ -6,6 +6,8 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     helium-browser.url = "github:schembriaiden/helium-browser-nix-flake";
     helium-browser.inputs.nixpkgs.follows = "nixpkgs";
+    chatgpt-desktop.url = "github:danielbodart/chatgpt-desktop";
+    chatgpt-desktop.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager = {
       url = "github:nix-community/home-manager";

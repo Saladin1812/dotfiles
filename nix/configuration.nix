@@ -14,6 +14,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
+    inputs.chatgpt-desktop.nixosModules.default
     ./modules/languages.nix
     ./modules/godot.nix
   ];
@@ -38,12 +39,14 @@
       "https://attic.xuyh0120.win/lantian"
       "https://nix-cache.tokidoki.dev/tokidoki"
       "https://varmisanth.cachix.org"
+      "https://danielbodart.cachix.org"
     ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
       "tokidoki:MD4VWt3kK8Fmz3jkiGoNRJIW31/QAm7l1Dcgz2Xa4hk="
       "varmisanth.cachix.org-1:rt04yjDDJKDWe+h6B1XQWfdsSDUX6uks+9IKVBjn2d8="
+      "danielbodart.cachix.org-1:751qv4GxLFJCThWMEw1WL6kUqY0DpF6oqPqsLKnnEwU="
     ];
   };
 
@@ -78,6 +81,16 @@
   # instead of upstream's FHS directories so WireGuard can configure its device.
   nixpkgs.overlays = [
     (final: prev: {
+      # Make media codecs available to Nautilus's audio/video properties reader.
+      nautilus = prev.nautilus.overrideAttrs (old: {
+        buildInputs = (old.buildInputs or [ ]) ++ (with final.gst_all_1; [
+          gst-plugins-good
+          gst-plugins-bad
+          gst-plugins-ugly
+          gst-libav
+        ]);
+      });
+
       windscribe = prev.windscribe.overrideAttrs (old: {
         postPatch = (old.postPatch or "") + ''
           substituteInPlace src/helper/linux/main.cpp \
@@ -313,13 +326,14 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  drivers.mesa-git = {
-    enable = true;
-    cacheCleanup = {
+  drivers.mesa-git.enable = true;
+  services.mesa-cache-cleanup.enable = true;
+  services.steam-cleanup = {
+    protonCache = {
       enable = true;
-      protonPackage = pkgs.proton-cachyos;
+      package = pkgs.proton-cachyos;
     };
-    steamOrphanCleanup.enable = true;
+    orphans.enable = true;
   };
 
   hardware.graphics = {
@@ -435,6 +449,11 @@
   };
 
   programs.nix-ld.enable = true;
+
+  programs.chatgpt-desktop = {
+    enable = true;
+    primaryRuntime.enable = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
