@@ -432,6 +432,12 @@
   };
 
   programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    wayland
+    libxkbcommon
+    libGL
+    vulkan-loader
+  ];
 
   programs.chatgpt-desktop = {
     enable = true;
