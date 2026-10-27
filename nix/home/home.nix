@@ -50,7 +50,7 @@ in
     terminal = false;
     type = "Application";
     categories = [ "Utility" "PackageManager" ];
-    keywords = [ "artcraft" "craft" "launcher" "installer" "updater" ];
+    settings.Keywords = "artcraft;craft;launcher;installer;updater;";
     startupNotify = true;
   };
 
