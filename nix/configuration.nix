@@ -94,11 +94,13 @@
       # pyrate-limiter's timing/concurrency tests currently fail under the
       # Python 3.14 build used by Lutris. Keep the package buildable while
       # upstream fixes its tests.
-      python3Packages = prev.python3Packages.overrideScope (pythonFinal: pythonPrev: {
-        pyrate-limiter = pythonPrev.pyrate-limiter.overridePythonAttrs (_: {
-          doCheck = false;
-        });
-      });
+      python3Packages = prev.python3Packages.overrideScope (
+        pythonFinal: pythonPrev: {
+          pyrate-limiter = pythonPrev.pyrate-limiter.overridePythonAttrs (_: {
+            doCheck = false;
+          });
+        }
+      );
     })
   ];
 
@@ -338,7 +340,6 @@
     clinfo
     codex
     google-chrome
-    davinci-resolve
     direnv
     discord
     deluge
@@ -350,7 +351,6 @@
     fzf
     deadlock-mod-manager
     ghostty
-    gimp3
     git
     git-filter-repo
     gnomeExtensions.appindicator
@@ -404,7 +404,6 @@
     unrar
     unzip
     celluloid
-    onlyoffice-desktopeditors
     tmux
     vim
     waybar
