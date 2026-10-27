@@ -8,6 +8,8 @@
     helium-browser.inputs.nixpkgs.follows = "nixpkgs";
     chatgpt-desktop.url = "github:danielbodart/chatgpt-desktop";
     chatgpt-desktop.inputs.nixpkgs.follows = "nixpkgs";
+    craft-launcher.url = "github:storytold/craft-launcher";
+    craft-launcher.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager = {
       url = "github:nix-community/home-manager";

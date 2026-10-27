@@ -36,14 +36,12 @@
     warn-dirty = false;
     substituters = [
       "https://cache.nixos.org"
-      "https://attic.xuyh0120.win/lantian"
       "https://nix-cache.tokidoki.dev/tokidoki"
       "https://varmisanth.cachix.org"
       "https://danielbodart.cachix.org"
     ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
       "tokidoki:MD4VWt3kK8Fmz3jkiGoNRJIW31/QAm7l1Dcgz2Xa4hk="
       "varmisanth.cachix.org-1:rt04yjDDJKDWe+h6B1XQWfdsSDUX6uks+9IKVBjn2d8="
       "danielbodart.cachix.org-1:751qv4GxLFJCThWMEw1WL6kUqY0DpF6oqPqsLKnnEwU="
@@ -83,12 +81,14 @@
     (final: prev: {
       # Make media codecs available to Nautilus's audio/video properties reader.
       nautilus = prev.nautilus.overrideAttrs (old: {
-        buildInputs = (old.buildInputs or [ ]) ++ (with final.gst_all_1; [
-          gst-plugins-good
-          gst-plugins-bad
-          gst-plugins-ugly
-          gst-libav
-        ]);
+        buildInputs =
+          (old.buildInputs or [ ])
+          ++ (with final.gst_all_1; [
+            gst-plugins-good
+            gst-plugins-bad
+            gst-plugins-ugly
+            gst-libav
+          ]);
       });
 
       windscribe = prev.windscribe.overrideAttrs (old: {
@@ -111,7 +111,7 @@
                 prev.iw
                 prev.kmod
                 prev.systemd
-                prev.windscribe.nmcli
+                prev.networkmanager
               ]
             }"'
         '';
@@ -410,6 +410,7 @@
     legcord
     tutanota-desktop
     tree-sitter
+    metadata-cleaner
     nautilus
     teams-for-linux
     unityhub

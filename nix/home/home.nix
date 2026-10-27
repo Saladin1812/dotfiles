@@ -26,6 +26,7 @@
     protonup-ng
     bibata-cursors
     morewaita-icon-theme
+    inputs.craft-launcher.packages.x86_64-linux.default
     inputs.zen-browser.packages.x86_64-linux.default
     inputs.helium-browser.packages.x86_64-linux.helium
   ];
