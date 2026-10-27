@@ -5,6 +5,14 @@
   ...
 }:
 
+let
+  artcraftLauncher = inputs.craft-launcher.packages.x86_64-linux.default.overrideAttrs (_: previous: {
+    cargoDeps = pkgs.rustPlatform.importCargoLock {
+      lockFile = "${inputs.craft-launcher}/Cargo.lock";
+      outputHashes."craft-quit-0.1.0" = "sha256-1jW/Zlj2VZK7yDoC0dq9taDH5L3i16XphbFx3eI1+cQ=";
+    };
+  });
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -26,12 +34,28 @@
     protonup-ng
     bibata-cursors
     morewaita-icon-theme
-    inputs.craft-launcher.packages.x86_64-linux.default
+    artcraftLauncher
     inputs.zen-browser.packages.x86_64-linux.default
     inputs.helium-browser.packages.x86_64-linux.helium
   ];
 
   xdg.enable = true;
+
+  xdg.desktopEntries.artcraft-launcher = {
+    name = "ArtCraft Launcher";
+    genericName = "App Launcher";
+    comment = "Install, update and launch the Craft App Suite";
+    exec = "${artcraftLauncher}/bin/artcraft-launcher";
+    icon = "ai.storyteller.artcraft-launcher";
+    terminal = false;
+    type = "Application";
+    categories = [ "Utility" "PackageManager" ];
+    keywords = [ "artcraft" "craft" "launcher" "installer" "updater" ];
+    startupNotify = true;
+  };
+
+  xdg.dataFile."icons/hicolor/scalable/apps/ai.storyteller.artcraft-launcher.svg".source =
+    "${inputs.craft-launcher}/assets/app-icon/hicolor/scalable/apps/ai.storyteller.artcraft-launcher.svg";
 
   services.easyeffects = import ./easyeffects.nix;
 

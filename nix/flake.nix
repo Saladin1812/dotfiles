@@ -8,7 +8,7 @@
     helium-browser.inputs.nixpkgs.follows = "nixpkgs";
     chatgpt-desktop.url = "github:danielbodart/chatgpt-desktop";
     chatgpt-desktop.inputs.nixpkgs.follows = "nixpkgs";
-    craft-launcher.url = "github:storytold/craft-launcher";
+    craft-launcher.url = "github:storytold/craft-launcher/v0.8.1";
     craft-launcher.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager = {
@@ -63,6 +63,33 @@
                 alacritty-theme.overlays.default
                 inputs.nix-gaming-edge.overlays.default
                 nix-cachyos-kernel.overlays.pinned
+                (final: prev: {
+                  # CachyOS kernels do not yet emit modules.cer. Newer
+                  # nixpkgs aggregateModules assumes it exists, so only merge
+                  # certificate files that the kernel/module packages provide.
+                  aggregateModules = modules:
+                    (prev.aggregateModules modules).overrideAttrs (old: {
+                      postBuild = builtins.replaceStrings [
+                        ''
+${"    "}cp --no-preserve=mode,ownership --remove-destination \
+${"      "}-- "$(readlink -f modules.cer)" modules.cer
+${"    "}sed "1,$(wc -l < modules.order)d; s/\.ko.*/.ko.cer/" modules.dep \
+${"        "}| xargs -d'\n' cat >> modules.cer
+                        ''
+                      ] [
+                        ''
+                          if test -e "$(readlink -f modules.cer 2>/dev/null)"; then
+                            cp --no-preserve=mode,ownership --remove-destination \
+                              -- "$(readlink -f modules.cer)" modules.cer
+                            sed "1,$(wc -l < modules.order)d; s/\.ko.*/.ko.cer/" modules.dep \
+                              | while IFS= read -r cer; do
+                                  test -f "$cer" && cat "$cer" >> modules.cer || true
+                                done
+                          fi
+                        ''
+                      ] old.postBuild;
+                    });
+                })
                 inputs.nix4vscode.overlays.default
               ];
             }

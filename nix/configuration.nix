@@ -39,12 +39,14 @@
       "https://nix-cache.tokidoki.dev/tokidoki"
       "https://varmisanth.cachix.org"
       "https://danielbodart.cachix.org"
+      "https://cache.lantian.pub/lantian"
     ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "tokidoki:MD4VWt3kK8Fmz3jkiGoNRJIW31/QAm7l1Dcgz2Xa4hk="
       "varmisanth.cachix.org-1:rt04yjDDJKDWe+h6B1XQWfdsSDUX6uks+9IKVBjn2d8="
       "danielbodart.cachix.org-1:751qv4GxLFJCThWMEw1WL6kUqY0DpF6oqPqsLKnnEwU="
+      "lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ="
     ];
   };
 
@@ -75,8 +77,6 @@
     app.autoStart = false;
   };
 
-  # The privileged helper resets PATH for security. Use immutable Nix paths
-  # instead of upstream's FHS directories so WireGuard can configure its device.
   nixpkgs.overlays = [
     (final: prev: {
       # Make media codecs available to Nautilus's audio/video properties reader.
@@ -91,30 +91,13 @@
           ]);
       });
 
-      windscribe = prev.windscribe.overrideAttrs (old: {
-        postPatch = (old.postPatch or "") + ''
-          substituteInPlace src/helper/linux/main.cpp \
-            --replace-fail '"/usr/sbin:/usr/bin:/sbin:/bin"' \
-            '"${
-              prev.lib.makeBinPath [
-                prev.coreutils
-                prev.iproute2
-                prev.gnugrep
-                prev.gawk
-                prev.gnused
-                prev.findutils
-                prev.procps
-                prev.util-linux
-                prev.iptables
-                prev.nftables
-                prev.ethtool
-                prev.iw
-                prev.kmod
-                prev.systemd
-                prev.networkmanager
-              ]
-            }"'
-        '';
+      # pyrate-limiter's timing/concurrency tests currently fail under the
+      # Python 3.14 build used by Lutris. Keep the package buildable while
+      # upstream fixes its tests.
+      python3Packages = prev.python3Packages.overrideScope (pythonFinal: pythonPrev: {
+        pyrate-limiter = pythonPrev.pyrate-limiter.overridePythonAttrs (_: {
+          doCheck = false;
+        });
       });
     })
   ];
