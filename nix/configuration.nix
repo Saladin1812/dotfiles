@@ -355,6 +355,7 @@
     git-filter-repo
     gnomeExtensions.appindicator
     gnome-disk-utility
+    epic-games-launcher
     grim
     gh
     jq
@@ -435,8 +436,16 @@
   programs.nix-ld.libraries = with pkgs; [
     wayland
     libxkbcommon
+    libX11
+    libXcursor
+    libXi
+    libXrandr
+    libXinerama
+    libXext
+    libXrender
     libGL
     vulkan-loader
+    alsa-lib
   ];
 
   programs.chatgpt-desktop = {

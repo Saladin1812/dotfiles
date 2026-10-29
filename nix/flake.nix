@@ -61,7 +61,24 @@
               # install the overlay
               nixpkgs.overlays = [
                 alacritty-theme.overlays.default
-                inputs.nix-gaming-edge.overlays.default
+                inputs.nix-gaming-edge.overlays.mesa-git
+                inputs.nix-gaming-edge.overlays.proton-cachyos
+                inputs.nix-gaming-edge.overlays.epic-games-launcher
+                (final: prev: {
+                  epic-games-launcher = prev.epic-games-launcher.override {
+                    source = {
+                      version = "0.105.0%2Bgc9a97d0";
+                      src = final.fetchurl {
+                        url = "https://content-download-egs.distro.on.epicgames.com/Builds/EGLv2/0.105.0%2Bgc9a97d0/Linux/EpicGamesLauncher-x86_64.AppImage";
+                        hash = "sha256-jk6KcC9MZ28ZDPVyPWKOGTFochIsKs0zjXvDEYdMtt0=";
+                      };
+                    };
+                    buildFHSEnv = args:
+                      prev.buildFHSEnv (args // {
+                        targetPkgs = fhsPkgs: args.targetPkgs fhsPkgs ++ [ fhsPkgs.libgpg-error ];
+                      });
+                  };
+                })
                 nix-cachyos-kernel.overlays.pinned
                 (final: prev: {
                   # CachyOS kernels do not yet emit modules.cer. Newer
