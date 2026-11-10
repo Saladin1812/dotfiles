@@ -1,0 +1,36 @@
+2026-11-09T18:58:40.793874Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=50575
+2026-11-09T18:58:40.793900Z  INFO herdr::client: connecting to server path=/home/saladin/.config/herdr/herdr-client.sock
+2026-11-09T18:58:40.835124Z  INFO herdr::client::handshake: endpoint handshake succeeded generation=1 server_version=0.9.5
+2026-11-09T19:00:38.388165Z  WARN herdr::raw_input: flushing lone escape after input timeout; if this follows an alt chord or focus switch it may reach the pane as plain esc bytes=[27]
+2026-11-09T19:01:09.569330Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=50575
+2026-11-09T19:23:59.507614Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=52916
+2026-11-09T19:23:59.507634Z  INFO herdr::client: connecting to server path=/home/saladin/.config/herdr/herdr-client.sock
+2026-11-09T19:23:59.731397Z  INFO herdr::client::handshake: endpoint handshake succeeded generation=1 server_version=0.9.5
+2026-11-09T19:24:23.685480Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=52916
+2026-11-10T14:54:29.053450Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=15382
+2026-11-10T14:54:29.053488Z  INFO herdr::client: connecting to server path=/home/saladin/.config/herdr/herdr-client.sock
+2026-11-10T14:54:29.059031Z  INFO herdr::client::handshake: endpoint handshake succeeded generation=1 server_version=0.9.5
+2026-11-10T14:55:20.324130Z  WARN herdr::raw_input: flushing lone escape after input timeout; if this follows an alt chord or focus switch it may reach the pane as plain esc bytes=[27]
+2026-11-10T14:56:26.343467Z  WARN herdr::raw_input: flushing lone escape after input timeout; if this follows an alt chord or focus switch it may reach the pane as plain esc bytes=[27]
+2026-11-10T14:56:26.623459Z  WARN herdr::raw_input: flushing lone escape after input timeout; if this follows an alt chord or focus switch it may reach the pane as plain esc bytes=[27]
+2026-11-10T14:56:27.116764Z  WARN herdr::raw_input: flushing lone escape after input timeout; if this follows an alt chord or focus switch it may reach the pane as plain esc bytes=[27]
+2026-11-10T14:56:27.284370Z  WARN herdr::raw_input: flushing lone escape after input timeout; if this follows an alt chord or focus switch it may reach the pane as plain esc bytes=[27]
+2026-11-10T14:56:27.453775Z  WARN herdr::raw_input: flushing lone escape after input timeout; if this follows an alt chord or focus switch it may reach the pane as plain esc bytes=[27]
+2026-11-10T14:58:41.365857Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=15382
+2026-11-10T17:06:28.867192Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=19208
+2026-11-10T17:06:28.867395Z  INFO herdr::client: connecting to server path=/home/saladin/.config/herdr/herdr-client.sock
+2026-11-10T17:06:28.925345Z  INFO herdr::client::handshake: endpoint handshake succeeded generation=1 server_version=0.9.5
+2026-11-10T17:06:55.402769Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=19208
+2026-11-10T17:08:26.023730Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=19916
+2026-11-10T17:08:26.023747Z  INFO herdr::client: connecting to server path=/home/saladin/.config/herdr/herdr-client.sock
+2026-11-10T17:08:26.053872Z  INFO herdr::client::handshake: endpoint handshake succeeded generation=1 server_version=0.9.5
+2026-11-10T17:08:34.740383Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=19916
+2026-11-10T17:09:28.210828Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=20192
+2026-11-10T17:09:28.210847Z  INFO herdr::client: connecting to server path=/home/saladin/.config/herdr/herdr-client.sock
+2026-11-10T17:09:28.352476Z  INFO herdr::client::handshake: endpoint handshake succeeded generation=1 server_version=0.9.5
+2026-11-10T17:09:57.381600Z  WARN herdr::raw_input: flushing lone escape after input timeout; if this follows an alt chord or focus switch it may reach the pane as plain esc bytes=[27]
+2026-11-10T17:10:22.358552Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=20192
+2026-11-10T17:11:09.931203Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=21327
+2026-11-10T17:11:09.931226Z  INFO herdr::client: connecting to server path=/home/saladin/.config/herdr/herdr-client.sock
+2026-11-10T17:11:09.947566Z  INFO herdr::client::handshake: endpoint handshake succeeded generation=1 server_version=0.9.5
+2026-11-10T17:11:41.680589Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=21327

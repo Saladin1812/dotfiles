@@ -1,0 +1,8 @@
+onboarding = false
+
+[theme]
+name = "tokyo-night"
+auto_switch = false
+
+[terminal]
+default_shell = "/usr/bin/fish"   
