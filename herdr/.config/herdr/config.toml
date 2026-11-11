@@ -6,3 +6,10 @@ auto_switch = false
 
 [terminal]
 default_shell = "/usr/bin/fish"   
+
+[keys]
+prefix = "ctrl+space"
+previous_agent  = "prefix+("
+next_agent  = "prefix+)"
+focus_agent = "ctrl+1..9"
+switch_workspace = "prefix+shift+1..9"
