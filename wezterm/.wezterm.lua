@@ -15,4 +15,19 @@ config.colors = {
 config.window_decorations = 'RESIZE'
 config.enable_tab_bar = false
 
+-- Keymap
+config.keys = {
+  {
+    key = 'q',
+    mods = 'SUPER',
+    action = wezterm.action.CloseCurrentPane { confirm = false },
+  },
+
+  {
+    key = 'c',
+    mods = 'SUPER',
+    action = wezterm.action.SendString 'clear\n'
+  },
+}
+
 return config
